@@ -9,35 +9,49 @@ ruleTester.run("file-layout", rule, {
       code: "",
       filename: "a/b/c.js",
       settings: {
-        "file-layout": "**"
+        "file-layout": true
       }
     },
     {
       code: "",
       filename: "a/b/c.js",
       settings: {
-        "file-layout": { a: "**" }
+        "file-layout": {
+          a: true
+        }
       }
     },
     {
       code: "",
       filename: "a/b/c.js",
       settings: {
-        "file-layout": { a: { b: "**" } }
+        "file-layout": {
+          a: {
+            b: true
+          }
+        }
       }
     },
     {
       code: "",
       filename: "a/b/c.js",
       settings: {
-        "file-layout": { a: { b: "c.js" } }
+        "file-layout": {
+          a: {
+            b: "c.js"
+          }
+        }
       }
     },
     {
       code: "",
       filename: "a/b/c.js",
       settings: {
-        "file-layout": { a: { "*": "c.js" } }
+        "file-layout": {
+          a: {
+            ".*": "c.js"
+          }
+        }
       }
     }
   ],
@@ -46,7 +60,7 @@ ruleTester.run("file-layout", rule, {
       code: "",
       filename: "a/b/c.js",
       settings: {
-        "file-layout": "*"
+        "file-layout": ".*"
       },
       errors: [
         {

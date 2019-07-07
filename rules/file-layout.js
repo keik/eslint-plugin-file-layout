@@ -28,24 +28,15 @@ function isValid(setting, paths) {
   debug(`isValid(${JSON.stringify(setting)}, ${JSON.stringify(paths)}})`);
   const currentPath = paths[0];
   if (currentPath == null) return false;
-  if (typeof setting === "string") {
-    return (
-      setting === "**" ||
-      (paths.length === 1 &&
-        (setting === currentPath ||
-          /* TODO: allow glob pattern or regexp */
-          setting === "*"))
-    );
+  if (setting === true) {
+    return true;
+  } else if (typeof setting === "string") {
+    return paths.length === 1 && RegExp("^" + setting + "$").test(currentPath);
   } else if (typeof setting === "object") {
-    if (Object.prototype.hasOwnProperty.call(setting, currentPath)) {
-      return isValid(setting[currentPath], paths.slice(1));
-    } else if (
-      /* TODO: allow glob pattern or regexp */
-      Object.prototype.hasOwnProperty.call(setting, "*")
-    ) {
-      return isValid(setting["*"], paths.slice(1));
-    } else {
-      false;
+    for (let k in setting) {
+      if (RegExp("^" + k + "$").test(currentPath)) {
+        return isValid(setting[k], paths.slice(1));
+      }
     }
   } else {
     throw new Error("Reached unexpected case. This is likely bug.");
