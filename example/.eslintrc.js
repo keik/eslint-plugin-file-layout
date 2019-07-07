@@ -4,7 +4,7 @@ module.exports = {
   settings: {
     "file-layout": {
       src: {
-        dir1: "*"
+        dir1: true
       }
     }
   },

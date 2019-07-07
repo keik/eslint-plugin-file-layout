@@ -8,7 +8,8 @@ Require to define allowed file layout in `settings['file-layout']` field at .esl
 
 File layout definitions can be specified as object and regard the nested key-value as file paths.
 
-TODO: ~Regexp is available in path string. Special string `'**'` would ignore remaind paths.~
+* Regexp is available in path string.
+* Special value `true` would ignore remaind paths.
 
 ```js
 module.exports = {
@@ -18,7 +19,7 @@ module.exports = {
   settings: {
     "file-layout": {
       src: {
-        dir1: "*"
+        dir1: true
       }
     }
   },
