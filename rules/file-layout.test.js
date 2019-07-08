@@ -60,6 +60,17 @@ ruleTester.run("file-layout", rule, {
       settings: {
         "file-layout": {
           a: {
+            "b|c": "c.js"
+          }
+        }
+      }
+    },
+    {
+      code: "",
+      filename: "a/b/c.js",
+      settings: {
+        "file-layout": {
+          a: {
             b: {
               "c.js": true
             }
