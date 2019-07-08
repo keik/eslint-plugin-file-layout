@@ -26,11 +26,10 @@ module.exports = {
 
 function isValid(setting, paths) {
   debug(`isValid(${JSON.stringify(setting)}, ${JSON.stringify(paths)}})`);
+  if (setting === true) return true;
   const currentPath = paths[0];
   if (currentPath == null) return false;
-  if (setting === true) {
-    return true;
-  } else if (typeof setting === "string") {
+  if (typeof setting === "string") {
     return paths.length === 1 && RegExp("^" + setting + "$").test(currentPath);
   } else if (typeof setting === "object") {
     for (let k in setting) {

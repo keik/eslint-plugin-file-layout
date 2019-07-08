@@ -53,6 +53,19 @@ ruleTester.run("file-layout", rule, {
           }
         }
       }
+    },
+    {
+      code: "",
+      filename: "a/b/c.js",
+      settings: {
+        "file-layout": {
+          a: {
+            b: {
+              "c.js": true
+            }
+          }
+        }
+      }
     }
   ],
   invalid: [
