@@ -1,5 +1,7 @@
 # eslint-plugin-file-layout
 
+[![npm-version](https://img.shields.io/npm/v/eslint-plugin-file-layout.svg?style=flat-square)](https://npmjs.org/package/eslint-plugin-file-layout)
+
 ESLint rules to ensure consistency in file layout.
 
 ## Why
