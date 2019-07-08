@@ -4,6 +4,7 @@
   "description": "ESLint rules to ensure consistency in file layout.",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint .",
     "test": "node $(glob 'rules/**/*.test.js')"
   },
   "files": [
