@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-file-layout",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "ESLint rules to ensure consistency in file layout.",
   "main": "index.js",
   "scripts": {
