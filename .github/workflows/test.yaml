@@ -1,0 +1,23 @@
+name: Test
+
+on:
+  [pull_request, push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        eslint:
+          - 8
+          - 7
+          - 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm install
+      - run: npm install --no-save "eslint@${{ matrix.eslint }}"
+      - run: npm run test
